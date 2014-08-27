@@ -1,0 +1,8 @@
+#emacs backup
+*~
+
+#erlang beam files
+*.beam
+
+#java class files
+*.class
