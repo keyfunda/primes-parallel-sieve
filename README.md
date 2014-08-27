@@ -100,7 +100,9 @@ All times are in seconds.
 In each case [glances](http://nicolargo.github.io/glances/) was used to verify CPU usage i.e; the processors were being exercised per P.
 
 ###Discussion
-It is probably not surprising that the Erlang code runs 30X slower than the Java code, since copies of large immutable lists are being passed around. Attempts were made to write mutable structures in Erlang, but then dismissed as not idiomatic Erlang. 
+It is probably not surprising that the Erlang code runs 30X slower than the Java code, since copies of large immutable lists are being passed around. Attempts were made to write mutable structures in Erlang, before staying with idiomatic Erlang. No doubt certain types of heavy computation in Erlang would be best handled via well-tuned NIF's in C or Java.
+
+The Erlang syntax seems to naturally lead even beginners to write concise and readable code. The `primes_single` Erlang function is all of 4 lines of code. This functional style is similar to the Haskell example (see [Ref [2] in the Wikipedia article](http://en.wikipedia.org/wiki/Sieve_of_eratosthenes#cite_note-ONeill-2).
 
 It was a pleasant surprise - at least for the author - to see the js Nashorn code perform as well as the js V8.
 
