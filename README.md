@@ -37,7 +37,7 @@ All functions run on the same Erlang node. The erl shell was used to time the co
 The module `sieve` in `sieve.erl` exports the following functions:
 
        Function/arity  	    args
-       primes/1		    N	   Simple sieve, slow
+       primes/1		    	N	   Simple sieve, slow
        primes_single/1      N	   Incremental sieve, single Erlang process
        primes_parr/2        N,P	   Incremental parallel sieve, P Erlang processes
 
@@ -48,8 +48,8 @@ node v0.10.26 (V8 js engine) was used to test the code from the command line.
 
 The cluster module was used to fork workers, the worker reports are collected via `process.send` and `worker.on`. Note that [`Array.prototype.reduce`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) is used in the `sieve` function.
 
-Usage: `foo@bar:~/erlang$ node primes_parr.js N P`
-
+Usage:  
+`foo@bar:~/erlang$ node primes_parr.js N P`  
 where P is the number of cluster workers.
 
 
@@ -59,14 +59,12 @@ vertx 2.1 was used to test the command from the command line with Java 8 (java v
 
 There are two versions of the code - `java` uses Java worker verticles, while `js` uses Javascript workers via the Nashorn js engine. The js engine can be set in `langs.properties` to other engines e.g; Rhino.
 
-Usage:
-Java worker verticle:		`foo@bar:~/vertx/java$ vertx run manager_java.js`
-Javascript worker verticle:	`foo@bar:~/vertx/js$ vertx run manager_js.js`
- 
+Usage:  
+Java worker verticle:		`foo@bar:~/vertx/java$ vertx run manager_java.js`  
+Javascript worker verticle:	`foo@bar:~/vertx/js$ vertx run manager_js.js`  
 The values of N and P are set in the source files, but they can also be passed to vertx via config. The code should be organized better as a module.
 
 IMPORTANT: Ensure that the JVM is warmed before collecting run time information.
-
 
 
 Test results
