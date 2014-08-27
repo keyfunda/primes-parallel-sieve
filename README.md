@@ -18,7 +18,7 @@ The parallel version (across P processing elements), to find the primes below a 
 
 We might expect this simple algorithm to be embarassingly parallel, but there are issues like contention in a shared memory bus that could cause serial overhead in a processing element, refer to [Amdahl's law](http://en.wikipedia.org/wiki/Amdahl%27s_law).
 
-To keep the console output simple and verifiable the code only counts the number of primes below N. For reference [the correct results](http://primes.utm.edu/howmany.shtml) are:
+To keep the console output simple and verifiable the code reports only the number of primes below N. For reference [the correct results](http://primes.utm.edu/howmany.shtml) are:
 
     N       Primes < N
     100     25
