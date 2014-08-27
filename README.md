@@ -91,7 +91,7 @@ All times are in seconds.
 
 ###100M primes (5761455)
 	P		Erlang		node.js				 vert.x   
-									js			Java   
+										js			Java   
 	1		36.07		10.24			8.44		1.15   
 	2		18.73		 5.03			5.30		0.63   
 	4		 9.66		 2.67			3.47		0.55   
