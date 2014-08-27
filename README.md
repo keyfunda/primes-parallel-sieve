@@ -90,12 +90,12 @@ Access: ssh shell, bash with tmux (no desktop load)
 All times are in seconds.   
 
 ###100M primes (5761455)
-P		Erlang		node.js				 vert.x   
+`P		Erlang		node.js				 vert.x   
 									js			Java   
 1		36.07		10.24			8.44		1.15   
 2		18.73		 5.03			5.30		0.63   
 4		 9.66		 2.67			3.47		0.55   
-8		 8.06		 2.76			2.97		0.43   
+8		 8.06		 2.76			2.97		0.43`   
 
 In each case [glances](http://nicolargo.github.io/glances/) was used to verify CPU usage i.e; the processors were being exercised per P.
 
