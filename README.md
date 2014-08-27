@@ -1,9 +1,9 @@
-prime-parallel-sieve
+primes-parallel-sieve
 ====================
 
 Prime number parallel sieve in Erlang, Javascript, &amp; Java
 
-Note: The code here is intended to be of an educational nature. The run-time performance numbers and comments are not language benchmarks, they are provided to invite discussion for improving the code.
+Important Note: The code here is intended to be of an educational nature. The run-time performance numbers and comments should not be interpreted as language benchmarks, they are provided to invite discussion for improving the code.
 
 
 Algorithm
@@ -30,6 +30,53 @@ To keep the console output simple and verifiable the code reports only the numbe
 
 Erlang
 ------
+Erlang release R17 was used to test the code.
+
+All functions run on the same Erlang node. The erl shell was used to time the code using timer:tc/3
+
+The module <p>sieve</p> in <p>sieve.erl</p> exports the following functions:
+
+       Function/arity  	    args        
+       primes/1		    N	   Simple sieve, slow
+       primes_single/1      N	   Incremental sieve, single Erlang process
+       primes_parr/2        N,P	   Incremental parallel sieve, P Erlang processes
+
+
+node.js
+-------
+node v0.10.26 (V8 js engine) was used to test the code from the command line.
+
+The cluster module was used to fork workers, the worker reports are collected via <p>process.send</p> and <p>worker.on</p>. Note that []<p>Array.prototype.reduce</p>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) is used in the <p>sieve</p> function.
+
+Usage: <p>foo@bar:~/erlang$ node primes_parr.js N P</p>
+
+where P is the number of cluster workers.
+
+
+vertx
+-----
+vertx 2.1 was used to test the command from the command line with Java 8 (java version "1.8.0").
+
+There are two versions of the code - <p>java</p> uses Java worker verticles, while <p>js</p> uses Javascript workers via the Nashorn js engine. The js engine can be set in <p>langs.properties</p> to other engines e.g; Rhino.
+
+Usage:
+Java worker verticle:		<p>foo@bar:~/vertx/java$ vertx run manager_java.js</p>
+Javascript worker verticle:	<p>foo@bar:~/vertx/js$ vertx run manager_js.js</p>
+ 
+The values of N and P are set in the source files, but they can also be passed to vertx via config. The code should be organized better as a module.
+
+IMPORTANT: Ensure that the JVM is warmed before collecting run time information.
+
+
+
+Test results
+------------
+
+
+
+
+
+
 
 
 
